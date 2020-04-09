@@ -1,2 +1,7 @@
 target/
 .vscode/
+.idea/
+.settings/
+.classpath
+.project
+JavaFirstProject.iml
