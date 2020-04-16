@@ -1,0 +1,45 @@
+db.createCollection( "Employee", {
+   validator: { $jsonSchema: {
+      bsonType: "object",
+      required: [ "fname", "lname", "city" ],
+      properties: {
+         fname: {
+            bsonType: "string",
+            description: "Must be a string and is required"
+         },
+         lname: {
+            bsonType : "string",
+            description: "Must be a string and is required"
+         },
+	 salary: {
+	    bsonType : "array",
+	    description: "Array of numbers"
+	 },
+         city: {
+            bsonType: "string",
+            description: "Must be a string"
+         }
+      }
+   } }
+} )
+
+
+db.Employee.find().pretty()
+
+db.Employee.find({}, {fname:1}).pretty()
+
+db.Employee.find({}, {_id:0}).pretty()
+
+db.Employee.find().sort({_id:1}).limit(5).pretty()
+
+db.Employee.find().sort({_id:1}).skip(5).limit(5).pretty()
+
+db.Employee.find({city:"Gurgaon"}).pretty()
+
+db.Employee.find({"salary.0":{$lt:20000}}).pretty()
+
+db.Employee.find({city:"Gurgaon", "salary.0":{$lt:20000}}).pretty()
+
+db.Employee.aggregate([{$group: {_id:null, count:{$sum: 1}, "Total Jan Salary": {$sum: {$arrayElemAt: [ "$salary", 0 ]}}}}])
+
+db.Employee.count({city: "Gurgaon"})
