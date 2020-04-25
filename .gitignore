@@ -1,7 +1,7 @@
-target/
-.vscode/
-.idea/
-JavaFirstProject.iml
-.classpath
-.project
-.settings
+Task2/target/
+Task2/.vscode/
+Task2/.idea/
+Task2/.classpath
+Task2/.project
+Task2/.settings
+Task2/Task2.iml
