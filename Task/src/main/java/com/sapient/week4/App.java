@@ -7,6 +7,7 @@ public class App {
         arr_Process.sort();
         arr_Process.displayHorizontal();
         System.out.println(arr_Process.biggest());
+        arr_Process = null;
 
         Matrix matrix = new Matrix();
         matrix.read();
@@ -14,5 +15,8 @@ public class App {
         Matrix matrix2 = new Matrix(matrix);
         matrix.add(matrix2);
         matrix.display();
+
+        matrix = null;
+        matrix2 = null;
     }
 }
