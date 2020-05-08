@@ -31,18 +31,18 @@ public class TicTocThread implements Runnable {
 
     private void printTic() throws InterruptedException {
         for (int i = 0; i < 10; i++) {
-            ticLock.acquire(1);
+            ticLock.acquire();
             System.out.println("Tic");
-            tocLock.release(1);
+            tocLock.release();
         }
 
     }
 
     private void printToc() throws InterruptedException {
         for (int i = 0; i < 10; i++) {
-            tocLock.acquire(1);
+            tocLock.acquire();
             System.out.println("Toc");
-            ticLock.release(1);
+            ticLock.release();
         }
     }
 }
