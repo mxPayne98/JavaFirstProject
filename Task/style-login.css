@@ -1,0 +1,116 @@
+body {
+    font-family: "Cambria Math", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.row {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.sidenav {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .sidenav {
+        height: 100%;
+        background-color: #ffffff;
+        overflow-x: visible;
+        padding: 0 0 0 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.login-form {
+    height: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-form form {
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-header {
+    width: 50%;
+}
+
+.form-logo {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .form-logo {
+        display: block;
+        width: 25%;
+        margin-top: 30px;
+    }
+
+    .login-form {
+        height: 100%;
+        background-color: #ffffff;
+        color: #000000;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.logo {
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.login-main-text {
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    margin-left: 10px;
+}
+
+.login-main-text h1 {
+    font-weight: 300;
+}
+
+.button-group {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #FE414D !important;
+    border-color: rgba(255, 65, 77, 0.596) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: rgb(251, 50, 63) !important;
+    border-color: rgba(255, 65, 77, 0.596) !important;
+}
+
+.btn {
+    margin: 10px 10px 10px 0;
+}
