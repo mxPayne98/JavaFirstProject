@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: bhavyamkark98
-  Date: 6/5/2020
-  Time: 9:33 AM
+  Date: 6/6/2020
+  Time: 11:28 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -23,17 +23,30 @@
 </head>
 <body>
 <div class="container">
-    <h1>Welcome</h1>
+    <h1>Result </h1>
     <br>
     Time: ${time}
     <br>
-    <p class="error">${errorMessage}</p>
-    <form action="/result/student" method="GET">
-        Student ID : <input type="text" name="id"/>
-        <input type="submit" value="Submit"/>
-    </form>
+    Student ID: ${student.id}
+    <br>
+    Student Name: ${student.name}
+    <br>
+    <table class="table">
+
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+        </tr>
+
+        <c:forEach var="entry" items="${student.result.marks}">
+            <tr>
+                <td><c:out value="${entry.key}"/></td>
+                <td><c:out value="${entry.value}"/></td>
+            </tr>
+        </c:forEach>
+
+    </table>
 </div>
 
 </body>
 </html>
-

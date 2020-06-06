@@ -7,6 +7,10 @@ body {
     justify-items: center;
 }
 
+.error {
+    color: red;
+}
+
 .container {
     align-items: center;
     height: 100vh;
@@ -20,4 +24,14 @@ body {
 h1 {
     align-items: center;
     color: darkorange;
+    margin: 20px;
+}
+
+b, strong {
+    display:inline !important;
+}
+
+.table {
+    width: 50%;
+    margin: 20px;
 }
