@@ -1,2 +1,2 @@
-# Weekly Task Repo
-#### Each weekly task is present in separate branch "week#" where # : week number
+# PJP 2 Week 2 Task
+## <a href="./maven">1. Maven</a>
