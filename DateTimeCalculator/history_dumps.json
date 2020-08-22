@@ -1,0 +1,111 @@
+[
+  {
+    "transaction": {
+      "operation": "Natural Language Expression",
+      "inputs": [
+        {
+          "year": 2020,
+          "month": "AUGUST",
+          "chronology": {
+            "calendarType": "iso8601",
+            "id": "ISO"
+          },
+          "era": "CE",
+          "dayOfYear": 236,
+          "leapYear": true,
+          "monthValue": 8,
+          "dayOfMonth": 23,
+          "dayOfWeek": "SUNDAY"
+        },
+        "today"
+      ],
+      "output": "23-08-2020"
+    },
+    "timeStamp": "2020-08-23T02:39:39.1549657"
+  },
+  {
+    "transaction": {
+      "operation": "Natural Language Expression",
+      "inputs": [
+        {
+          "year": 2020,
+          "month": "AUGUST",
+          "chronology": {
+            "calendarType": "iso8601",
+            "id": "ISO"
+          },
+          "era": "CE",
+          "dayOfYear": 236,
+          "leapYear": true,
+          "monthValue": 8,
+          "dayOfMonth": 23,
+          "dayOfWeek": "SUNDAY"
+        },
+        "tomorrow"
+      ],
+      "output": "24-08-2020"
+    },
+    "timeStamp": "2020-08-23T02:39:46.5888087"
+  },
+  {
+    "transaction": {
+      "operation": "SUBTRACT 2 DATES",
+      "inputs": [
+        {
+          "year": 1995,
+          "month": "FEBRUARY",
+          "chronology": {
+            "calendarType": "iso8601",
+            "id": "ISO"
+          },
+          "era": "CE",
+          "dayOfYear": 53,
+          "leapYear": false,
+          "monthValue": 2,
+          "dayOfMonth": 22,
+          "dayOfWeek": "WEDNESDAY"
+        },
+        {
+          "year": 2020,
+          "month": "AUGUST",
+          "chronology": {
+            "calendarType": "iso8601",
+            "id": "ISO"
+          },
+          "era": "CE",
+          "dayOfYear": 235,
+          "leapYear": true,
+          "monthValue": 8,
+          "dayOfMonth": 22,
+          "dayOfWeek": "SATURDAY"
+        }
+      ],
+      "output": "Difference is 25 years, 6 months, 0 weeks and 0 days"
+    },
+    "timeStamp": "2020-08-23T02:40:01.1823862"
+  },
+  {
+    "transaction": {
+      "operation": "Natural Language Expression",
+      "inputs": [
+        {
+          "year": 2020,
+          "month": "AUGUST",
+          "chronology": {
+            "id": "ISO",
+            "calendarType": "iso8601"
+          },
+          "era": "CE",
+          "dayOfYear": 236,
+          "leapYear": true,
+          "monthValue": 8,
+          "dayOfMonth": 23,
+          "dayOfWeek": "SUNDAY"
+        },
+        "today"
+      ],
+      "output": "23-08-2020"
+    },
+    "timeStamp": "2020-08-23T03:34:07.8763731"
+  }
+]
