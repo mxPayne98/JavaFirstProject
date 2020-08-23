@@ -3411,4 +3411,24 @@
     "output" : "24-08-2020"
   },
   "timeStamp" : "2020-08-23T21:48:17.5617583"
+}, {
+  "transaction" : {
+    "operation" : "Natural Language Expression",
+    "inputs" : [ {
+      "year" : 2020,
+      "month" : "AUGUST",
+      "chronology" : {
+        "id" : "ISO",
+        "calendarType" : "iso8601"
+      },
+      "era" : "CE",
+      "dayOfYear" : 236,
+      "leapYear" : true,
+      "monthValue" : 8,
+      "dayOfMonth" : 23,
+      "dayOfWeek" : "SUNDAY"
+    }, "today" ],
+    "output" : "23-08-2020"
+  },
+  "timeStamp" : "2020-08-23T23:09:33.7220254"
 } ]
