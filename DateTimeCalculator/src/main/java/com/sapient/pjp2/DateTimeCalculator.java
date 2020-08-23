@@ -72,15 +72,27 @@ public class DateTimeCalculator implements Calculator {
     }
 
     @Override
+    public String naturalProcessor(String expression) {
+        return naturalProcessor(null, expression);
+    }
+
+    @Override
     public String naturalProcessor(LocalDate d, String expression) {
+        if (d == null) d = LocalDate.now();
         return performOperation(OperationFactory.NLP, List.of(d, expression));
     }
 
     @Override
-    public String viewHistory() {
+    public String viewHistory(boolean fromMemory) {
         List<String> historyelements = new ArrayList<>();
-        for (SessionObject so : this.session.getHistory()) {
-            historyelements.add(so.toString());
+        if (fromMemory) {
+            for (SessionObject so : this.session.getRecentHistory()) {
+                historyelements.add(so.toString());
+            }
+        } else {
+            for (SessionObject so : this.session.getHistory()) {
+                historyelements.add(so.toString());
+            }
         }
         return String.join("\n", historyelements);
     }

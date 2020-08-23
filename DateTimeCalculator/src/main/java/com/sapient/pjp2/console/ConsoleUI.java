@@ -82,7 +82,7 @@ public class ConsoleUI {
                 if (option >= 1 && option <= 12) {
                     String result;
                     if (option == 12) {
-                        result = this.calculator.viewHistory();
+                        result = this.calculator.viewHistory(false);
                     } else if (option == 11) {
                         result = executeNLP();
                     } else {
@@ -97,9 +97,8 @@ public class ConsoleUI {
     }
 
     private String executeNLP() throws IOException {
-        LocalDate d = LocalDate.now();
         String expression = takeNLPInput();
-        return this.calculator.naturalProcessor(d, expression);
+        return this.calculator.naturalProcessor(expression);
     }
 
     private String execute(int option, BiFunction<LocalDate[], Integer, String> function, String pattern) throws Exception {
@@ -109,8 +108,7 @@ public class ConsoleUI {
 
     private String takeNLPInput() throws IOException {
         out.println("Natural Language Expression");
-        String expression = br.readLine();
-        return expression;
+        return br.readLine();
     }
 
     private Input takeInput(int option, String pattern) throws Exception {

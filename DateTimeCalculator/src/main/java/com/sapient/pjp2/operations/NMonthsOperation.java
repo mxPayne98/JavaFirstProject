@@ -16,12 +16,7 @@ public class NMonthsOperation extends Operation {
 
     @Override
     public Operation operate() {
-        LocalDate temp;
-        if (this.increment > 0) {
-            temp = date.plusMonths(this.increment);
-        } else {
-            temp = date.minusMonths(this.increment);
-        }
+        LocalDate temp = date.plusMonths(this.increment);
         this.result = DateUtil.parseDate(temp);
         return this;
     }

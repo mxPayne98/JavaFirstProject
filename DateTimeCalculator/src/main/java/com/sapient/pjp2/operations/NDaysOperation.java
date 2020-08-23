@@ -16,12 +16,7 @@ public class NDaysOperation extends Operation {
 
     @Override
     public Operation operate() {
-        LocalDate temp;
-        if (this.increment > 0) {
-            temp = date.plusDays(this.increment);
-        } else {
-            temp = date.minusDays(this.increment);
-        }
+        LocalDate temp = date.plusDays(this.increment);
         this.result = DateUtil.parseDate(temp);
         return this;
     }

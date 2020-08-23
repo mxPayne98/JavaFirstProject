@@ -16,12 +16,7 @@ public class NWeeksOperation extends Operation {
 
     @Override
     public Operation operate() {
-        LocalDate temp;
-        if (this.increment > 0) {
-            temp = date.plusWeeks(this.increment);
-        } else {
-            temp = date.minusWeeks(this.increment);
-        }
+        LocalDate temp = date.plusWeeks(this.increment);
         this.result = DateUtil.parseDate(temp);
         return this;
     }

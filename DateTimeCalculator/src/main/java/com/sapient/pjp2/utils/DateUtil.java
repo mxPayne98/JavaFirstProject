@@ -20,7 +20,7 @@ public interface DateUtil {
         if (date == null) {
             throw new NullPointerException("Invalid date.");
         }
-        return date.format(DateTimeFormatter.ofPattern(PATTERN2));
+        return date.format(getDateFormat(PATTERN2));
     }
 
     static DateTimeFormatter getDateFormat(String pattern) {

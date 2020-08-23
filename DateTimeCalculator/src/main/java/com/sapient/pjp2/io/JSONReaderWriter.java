@@ -38,7 +38,6 @@ public class JSONReaderWriter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

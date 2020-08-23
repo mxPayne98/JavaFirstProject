@@ -36,7 +36,10 @@ public class Session {
     }
 
     public List<SessionObject> getHistory() {
-//        return List.copyOf(this.history);
         return this.jsonReaderWriter.read();
+    }
+
+    public List<SessionObject> getRecentHistory() {
+        return List.copyOf(this.history);
     }
 }

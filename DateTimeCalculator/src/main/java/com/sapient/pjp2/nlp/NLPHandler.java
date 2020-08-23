@@ -5,6 +5,9 @@ import java.time.LocalDate;
 public class NLPHandler implements NLPCommands {
 
     public static String parser(LocalDate date, String expression) {
+        if (expression == null || expression.isBlank()) {
+            throw new IllegalArgumentException("Invalid expression.");
+        }
         int increment = 0;
         String[] numbers =
                 expression.replaceAll("[^0-9]", " ")

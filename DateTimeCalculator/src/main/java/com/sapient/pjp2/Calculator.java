@@ -26,5 +26,7 @@ public interface Calculator {
 
     public String naturalProcessor(LocalDate d, String expression);
 
-    public String viewHistory();
+    public String naturalProcessor(String expression);
+
+    public String viewHistory(boolean fromMemory);
 }

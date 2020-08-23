@@ -1,5 +1,7 @@
 package com.sapient.pjp2.operations;
 
+import com.sapient.pjp2.utils.DateUtil;
+
 import java.time.LocalDate;
 
 public class AddOperation extends Operation {
@@ -28,7 +30,7 @@ public class AddOperation extends Operation {
                 .plusYears(to.getYear())
                 .plusMonths(to.getMonthValue())
                 .plusDays(to.getDayOfMonth());
-        this.result = temp.toString();
+        this.result = DateUtil.parseDate(temp);
         return this;
     }
 
