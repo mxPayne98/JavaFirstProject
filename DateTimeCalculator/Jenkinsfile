@@ -1,23 +1,21 @@
 node {
-    stages {
-        stage('Preparation') {
-            checkout scm
+    stage('Preparation') {
+        checkout scm
+    }
+    stage('Build') {
+        def mavencontainer = docker.image('maven:3.6.3-jdk-11')
+        mavencontainer.pull()
+        mavencontainer.inside {
+            sh 'mvn -B -DskipTests clean package'
         }
-        stage('Build') {
-            def mavencontainer = docker.image('maven:3.6.3-jdk-11')
-            mavencontainer.pull()
-            mavencontainer.inside {
-                sh 'mvn -B -DskipTests clean package'
-            }
-        }
-        stage('Test') {
-            def mavencontainer = docker.image('maven:3.6.3-jdk-11')
-            mavencontainer.pull()
-            mavencontainer.inside {
-                sh 'mvn test'
-                sh 'mvn surefire-report:report-only'
-                sh 'mvn site'
-            }
+    }
+    stage('Test') {
+        def mavencontainer = docker.image('maven:3.6.3-jdk-11')
+        mavencontainer.pull()
+        mavencontainer.inside {
+            sh 'mvn test'
+            sh 'mvn surefire-report:report-only'
+            sh 'mvn site'
         }
     }
 }
