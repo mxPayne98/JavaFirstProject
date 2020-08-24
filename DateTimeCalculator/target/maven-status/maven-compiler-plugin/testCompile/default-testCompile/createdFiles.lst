@@ -1,0 +1,4 @@
+com\sapient\pjp2\AppTest.class
+com\sapient\pjp2\nlp\NLPHandlerTest.class
+com\sapient\pjp2\utils\DateUtilTest.class
+com\sapient\pjp2\CalculatorTest.class
