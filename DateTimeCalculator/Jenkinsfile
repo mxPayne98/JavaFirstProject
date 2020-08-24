@@ -14,11 +14,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean install'
+                sh 'cd DateTimeCalculator'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
+                sh 'cd DateTimeCalculator'
                 sh 'mvn test'
                 sh 'mvn surefire-report:report-only'
                 sh 'mvn site'
