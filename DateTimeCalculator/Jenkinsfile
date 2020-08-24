@@ -14,21 +14,22 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'cd DateTimeCalculator'
-                sh 'mvn -B -DskipTests clean package'
+                sh """
+                #!/bin/bash
+                cd DateTimeCalculator
+                mvn -B -DskipTests clean package
+                """
             }
         }
         stage('Test') {
             steps {
-                sh 'cd DateTimeCalculator'
-                sh 'mvn test'
-                sh 'mvn surefire-report:report-only'
-                sh 'mvn site'
-            }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
+                sh """
+                #!/bin/bash
+                cd DateTimeCalculator
+                mvn test
+                mvn surefire-report:report-only
+                mvn site
+                """
             }
         }
     }
