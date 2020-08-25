@@ -26,9 +26,9 @@ public class TransactionIOCSV implements TransactionIO {
                 t.setTransactionID(line[0]);
                 t.setClientID(line[1]);
                 t.setSecurityID(line[2]);
-                t.setDate(LocalDate.parse(line[3], DateTimeFormatter.ofPattern(DATE_PATTERN)));
-                t.setType(calculateType(line[4]));
-                t.setMarketValue(Long.parseLong(line[5]));
+                t.setType(calculateType(line[3]));
+                t.setDate(LocalDate.parse(line[4], DateTimeFormatter.ofPattern(DATE_PATTERN)));
+                t.setMarketValue(Double.parseDouble(line[5]));
                 t.setPriority(line[6].equals("Y"));
                 transactions.add(t);
             }
@@ -54,9 +54,23 @@ public class TransactionIOCSV implements TransactionIO {
         return -1;
     }
 
+    private String calculateTypeReverse(int type) {
+        switch (type) {
+            case Processor.BUY:
+                return "BUY";
+            case Processor.SELL:
+                return "SELL";
+            case Processor.WITHDRAW:
+                return "WITHDRAW";
+            case Processor.DEPOSIT:
+                return "DEPOSIT";
+        }
+        return null;
+    }
+
     @Override
     public File write(List<Transaction> transactions) {
-        File file = new File("\"transaction_report.csv\"");
+        File file = new File("transaction_report.csv");
         try {
             file.createNewFile();
             CSVWriter writer = new CSVWriter(new FileWriter(file));
@@ -78,7 +92,7 @@ public class TransactionIOCSV implements TransactionIO {
             for (Transaction t : transactions) {
                 String[] array = new String[5];
                 array[0] = t.getClientID();
-                array[1] = String.valueOf(t.getType());
+                array[1] = calculateTypeReverse(t.getType());
                 array[2] = t.getDate().format(DateTimeFormatter.ofPattern(DATE_PATTERN));
                 array[3] = t.isPriority() ? "Y" : "N";
                 array[4] = String.valueOf(t.getProcessingFee());

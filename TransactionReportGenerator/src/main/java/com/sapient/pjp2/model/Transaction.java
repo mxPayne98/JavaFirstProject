@@ -8,7 +8,7 @@ public class Transaction {
     private String securityID;
     private int type;
     private LocalDate date;
-    private long marketValue;
+    private double marketValue;
     boolean priority;
     private Integer processingFee;
 
@@ -52,11 +52,11 @@ public class Transaction {
         this.date = date;
     }
 
-    public long getMarketValue() {
+    public double getMarketValue() {
         return marketValue;
     }
 
-    public void setMarketValue(long marketValue) {
+    public void setMarketValue(double marketValue) {
         this.marketValue = marketValue;
     }
 
