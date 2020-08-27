@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="18" failures="0" name="com.sapient.pjp2.CalculatorTest" time="0.695" errors="0" skipped="0">
+<testsuite tests="17" failures="0" name="com.sapient.pjp2.CalculatorTest" time="19.433" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.2+9-LTS"/>
@@ -45,7 +45,7 @@
     <property name="java.class.path" value="C:/Program Files/apache-maven-3.6.3/boot/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean install"/>
     <property name="java.home" value="C:\Program Files\Java\jdk-11.0.2"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -65,22 +65,21 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractNWeeks" time="0.354"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNDaysSubtarct" time="0.022"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractDateSameDates" time="0.012"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="weekNumber" time="0.032"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNDays" time="0.01"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNMonths" time="0.011"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addDate" time="0.009"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractNDaysAdd" time="0.012"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNDays1" time="0.009"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNWeeks" time="0.012"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractNDays" time="0.012"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addSubtractNEqual" time="0.027"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="dayOfTheWeek" time="0.038"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractDate" time="0.012"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractNMonths" time="0.008"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractDateAbsoluteDifference" time="0.016"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="testViewHistoryFromMemory" time="0.089"/>
-  <testcase classname="com.sapient.pjp2.CalculatorTest" name="naturalProcessor" time="0.01"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractNWeeks" time="3.168"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNDaysSubtarct" time="1.022"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractDateSameDates" time="1.012"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="weekNumber" time="1.016"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNDays" time="1.027"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNMonths" time="1.012"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addDate" time="1.01"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractNDaysAdd" time="0.991"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNDays1" time="0.991"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addNWeeks" time="1.021"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractNDays" time="1.009"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="addSubtractNEqual" time="1.097"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="dayOfTheWeek" time="1.016"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractDate" time="1.016"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractNMonths" time="1.02"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="subtractDateAbsoluteDifference" time="1.011"/>
+  <testcase classname="com.sapient.pjp2.CalculatorTest" name="naturalProcessor" time="0.994"/>
 </testsuite>

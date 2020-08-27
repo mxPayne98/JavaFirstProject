@@ -6,12 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Session {
-    private Queue<SessionObject> history;
+public class FileCalculatorSession implements CalculatorSession {
+    private Queue<DateTimeOperation> history;
     private static final int CAPACITY = 100;
     private final JSONReaderWriter jsonReaderWriter;
 
-    public Session() {
+    public FileCalculatorSession() {
         this.history = new LinkedList<>();
         this.jsonReaderWriter = new JSONReaderWriter("./history_dumps.json");
     }
@@ -26,20 +26,20 @@ public class Session {
         if (this.history.size() == CAPACITY) {
             this.history.remove();
         }
-        SessionObject sessionObject = new SessionObject(transaction);
-        this.history.add(sessionObject);
-        this.jsonReaderWriter.write(sessionObject);
+        DateTimeOperation dateTimeOperation = new DateTimeOperation(transaction);
+        this.history.add(dateTimeOperation);
+        this.jsonReaderWriter.write(dateTimeOperation);
     }
 
     public void clear() {
         this.history = new LinkedList<>();
     }
 
-    public List<SessionObject> getHistory() {
+    public List<DateTimeOperation> getHistory() {
         return this.jsonReaderWriter.read();
     }
 
-    public List<SessionObject> getRecentHistory() {
+    public List<DateTimeOperation> getRecentHistory() {
         return List.copyOf(this.history);
     }
 }

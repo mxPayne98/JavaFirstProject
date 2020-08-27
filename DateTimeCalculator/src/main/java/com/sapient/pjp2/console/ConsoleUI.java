@@ -82,7 +82,7 @@ public class ConsoleUI {
                 if (option >= 1 && option <= 12) {
                     String result;
                     if (option == 12) {
-                        result = this.calculator.viewHistory(false);
+                        result = this.calculator.viewHistory(true);
                     } else if (option == 11) {
                         result = executeNLP();
                     } else {

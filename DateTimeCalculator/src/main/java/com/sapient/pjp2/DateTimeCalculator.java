@@ -2,9 +2,10 @@ package com.sapient.pjp2;
 
 import com.sapient.pjp2.operations.Operation;
 import com.sapient.pjp2.operations.OperationFactory;
+import com.sapient.pjp2.session.CalculatorSession;
+import com.sapient.pjp2.session.DateTimeOperation;
+import com.sapient.pjp2.session.HibernateCalculatorSession;
 import com.sapient.pjp2.session.OperationTransaction;
-import com.sapient.pjp2.session.Session;
-import com.sapient.pjp2.session.SessionObject;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -12,11 +13,11 @@ import java.util.List;
 
 public class DateTimeCalculator implements Calculator {
 
-    private final Session session;
+    private final CalculatorSession calculatorSession;
     private final OperationFactory operationFactory;
 
     public DateTimeCalculator() {
-        this.session = new Session();
+        this.calculatorSession = new HibernateCalculatorSession();
         this.operationFactory = new OperationFactory();
     }
 
@@ -83,14 +84,14 @@ public class DateTimeCalculator implements Calculator {
     }
 
     @Override
-    public String viewHistory(boolean fromMemory) {
+    public String viewHistory(boolean limitRecent) {
         List<String> historyelements = new ArrayList<>();
-        if (fromMemory) {
-            for (SessionObject so : this.session.getRecentHistory()) {
+        if (limitRecent) {
+            for (DateTimeOperation so : this.calculatorSession.getRecentHistory()) {
                 historyelements.add(so.toString());
             }
         } else {
-            for (SessionObject so : this.session.getHistory()) {
+            for (DateTimeOperation so : this.calculatorSession.getHistory()) {
                 historyelements.add(so.toString());
             }
         }
@@ -101,7 +102,7 @@ public class DateTimeCalculator implements Calculator {
         Operation operation = this.operationFactory.getOperation(operationOption, inputs);
         String result = operation.operate().getResult();
         OperationTransaction ot = new OperationTransaction(operation.getName(), inputs, result);
-        this.session.save(ot);
+        this.calculatorSession.save(ot);
         return result;
     }
 }

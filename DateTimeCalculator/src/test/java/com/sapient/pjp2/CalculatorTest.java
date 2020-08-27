@@ -121,14 +121,4 @@ public class CalculatorTest {
         assertEquals(DateUtil.parseDate(LocalDate.now().plusDays(1)),
                 calculator.naturalProcessor("tomorrow"));
     }
-
-    @Test
-    public void testViewHistoryFromMemory() {
-        calculator.addDate(d1, d2);
-        calculator.subtractDate(d1, d2);
-        calculator.naturalProcessor("12 weeks from now");
-        String history = calculator.viewHistory(true);
-        int lines = history.split("\n").length;
-        assertEquals(3, lines);
-    }
 }

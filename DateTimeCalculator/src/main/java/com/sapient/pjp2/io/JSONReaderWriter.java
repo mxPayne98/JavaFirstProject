@@ -3,7 +3,7 @@ package com.sapient.pjp2.io;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.sapient.pjp2.session.SessionObject;
+import com.sapient.pjp2.session.DateTimeOperation;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,26 +22,26 @@ public class JSONReaderWriter {
         }
     }
 
-    public void write(SessionObject sessionObject) {
+    public void write(DateTimeOperation dateTimeOperation) {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            append(mapper, sessionObject);
+            append(mapper, dateTimeOperation);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public List<SessionObject> read() {
+    public List<DateTimeOperation> read() {
         ObjectMapper mapper = new ObjectMapper();
         try {
-            return Arrays.asList(mapper.readValue(this.file, SessionObject[].class));
+            return Arrays.asList(mapper.readValue(this.file, DateTimeOperation[].class));
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    private void append(ObjectMapper mapper, SessionObject sessionObject) throws IOException {
+    private void append(ObjectMapper mapper, DateTimeOperation dateTimeOperation) throws IOException {
         JsonNode root = mapper.readTree(this.file);
         if (root == null || root.isMissingNode()) {
 //            root = mapper.createObjectNode();
@@ -52,7 +52,7 @@ public class JSONReaderWriter {
 //            session_history = mapper.createArrayNode();
 //            ((ObjectNode) root).set("session_history", session_history);
 //        }
-        ((ArrayNode) root).addPOJO(sessionObject);
+        ((ArrayNode) root).addPOJO(dateTimeOperation);
         mapper.writerWithDefaultPrettyPrinter().writeValue(this.file, root);
     }
 }
