@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class FileCalculatorSession implements CalculatorSession {
-    private Queue<DateTimeOperation> history;
+    private LinkedList<DateTimeOperation> history;
     private static final int CAPACITY = 100;
     private final JSONReaderWriter jsonReaderWriter;
 
@@ -41,5 +41,10 @@ public class FileCalculatorSession implements CalculatorSession {
 
     public List<DateTimeOperation> getRecentHistory() {
         return List.copyOf(this.history);
+    }
+
+    @Override
+    public DateTimeOperation lastOperation() {
+        return this.history.getLast();
     }
 }

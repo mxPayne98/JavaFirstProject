@@ -66,6 +66,28 @@ public class HibernateCalculatorSession implements CalculatorSession {
         return null;
     }
 
+    @Override
+    public DateTimeOperation lastOperation() {
+        try (Session session = this.sessionFactory.getCurrentSession()) {
+            session.beginTransaction();
+            List<DateTimeOperation> history = loadLastData(DateTimeOperation.class, session);
+            session.getTransaction().commit();
+            return history.get(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private static <T> List<T> loadLastData(Class<T> type, Session session) {
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery(type);
+        Root<T> root = query.from(type);
+        query.select(root);
+        query.orderBy(builder.desc(root.get("id")));
+        return session.createQuery(query).setMaxResults(1).getResultList();
+    }
+
     private static <T> List<T> loadAllData(Class<T> type, Session session) {
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);

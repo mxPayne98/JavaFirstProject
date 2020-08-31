@@ -1,5 +1,7 @@
 package com.sapient.pjp2;
 
+import com.sapient.pjp2.session.CalculatorSession;
+
 import java.time.LocalDate;
 
 public interface Calculator {
@@ -29,4 +31,6 @@ public interface Calculator {
     public String naturalProcessor(String expression);
 
     public String viewHistory(boolean fromMemory);
+
+    public CalculatorSession getSession();
 }

@@ -10,4 +10,6 @@ public interface CalculatorSession {
     public List<DateTimeOperation> getHistory();
 
     public List<DateTimeOperation> getRecentHistory();
+
+    public DateTimeOperation lastOperation();
 }

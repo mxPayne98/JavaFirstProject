@@ -66,8 +66,8 @@
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
   <testcase classname="com.sapient.pjp2.nlp.NLPHandlerTest" name="testParser1" time="0"/>
-  <testcase classname="com.sapient.pjp2.nlp.NLPHandlerTest" name="testParser2" time="0.001"/>
+  <testcase classname="com.sapient.pjp2.nlp.NLPHandlerTest" name="testParser2" time="0"/>
   <testcase classname="com.sapient.pjp2.nlp.NLPHandlerTest" name="testParser3" time="0"/>
   <testcase classname="com.sapient.pjp2.nlp.NLPHandlerTest" name="testParserNotUnderstood" time="0"/>
-  <testcase classname="com.sapient.pjp2.nlp.NLPHandlerTest" name="testParserIllegalPatternException" time="0.001"/>
+  <testcase classname="com.sapient.pjp2.nlp.NLPHandlerTest" name="testParserIllegalPatternException" time="0.002"/>
 </testsuite>

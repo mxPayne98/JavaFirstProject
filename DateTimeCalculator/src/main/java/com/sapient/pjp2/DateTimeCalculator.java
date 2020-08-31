@@ -98,6 +98,11 @@ public class DateTimeCalculator implements Calculator {
         return String.join("\n", historyelements);
     }
 
+    @Override
+    public CalculatorSession getSession() {
+        return this.calculatorSession;
+    }
+
     private String performOperation(Integer operationOption, List<Object> inputs) {
         Operation operation = this.operationFactory.getOperation(operationOption, inputs);
         String result = operation.operate().getResult();
