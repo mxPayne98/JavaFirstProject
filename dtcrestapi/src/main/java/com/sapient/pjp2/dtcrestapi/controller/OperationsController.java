@@ -13,6 +13,7 @@ public class OperationsController {
     @Autowired
     private CalculatorService calculatorService;
 
+    @CrossOrigin(origins = "http://localhost:8081")
     @PostMapping(value = "/operate/{option}")
     public DateTimeOperation executeOperation(@PathVariable Integer option,
                                               @RequestBody OperationInputs inputs) {

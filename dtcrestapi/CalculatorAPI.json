@@ -1,0 +1,172 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Date Time Calculator API",
+    "description": "The specification is for Date Time Calculator App that performs various operation on dates and returns results as String",
+    "version": "0.0.1"
+  },
+  "host": "localhost:8081",
+  "schemes": [
+    "http"
+  ],
+  "basePath": "/calculator",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/operate/{option}": {
+      "post": {
+        "summary": "Performs the operation and returns result",
+        "description": "Performs the operation identified by {option} and return the result",
+        "tags": [
+          "operation"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/parameters/operation_option"
+          },
+          {
+            "$ref": "#/parameters/operation_body"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Operation successfully executed",
+            "schema": {
+              "$ref": "#/definitions/OperationResult"
+            }
+          },
+          "404": {
+            "description": "Invalid operation",
+            "schema": {
+              "$ref": ""
+            }
+          },
+          "default": {
+            "description": "Error",
+            "schema": {
+              "$ref": ""
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "OperationRequest": {
+      "required": [
+        "inputs"
+      ],
+      "type": "object",
+      "properties": {
+        "inputs": {
+          "description": "Array containing inputs such as dates, number of (days/months/years) or NLP expression",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "example": [
+            "01-09-2020",
+            "01-10-2021"
+          ]
+        }
+      }
+    },
+    "Transaction": {
+      "required": [
+        "id",
+        "operation",
+        "inputs",
+        "output"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "operation": {
+          "type": "string"
+        },
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "output": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "id": 94,
+        "operation": "SUBTRACT 2 DATES",
+        "inputs": [
+          "2020-09-01",
+          "2021-10-01"
+        ],
+        "output": "Difference is 1 years, 1 months, 0 weeks and 0 days"
+      }
+    },
+    "OperationResult": {
+      "required": [
+        "transaction",
+        "timeStamp",
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "timeStamp": {
+          "type": "string"
+        },
+        "transaction": {
+          "type": "object",
+          "$ref": "#/definitions/Transaction"
+        }
+      },
+      "example": {
+        "transaction": {
+          "id": 94,
+          "operation": "SUBTRACT 2 DATES",
+          "inputs": [
+            "2020-09-01",
+            "2021-10-01"
+          ],
+          "output": "Difference is 1 years, 1 months, 0 weeks and 0 days"
+        },
+        "timeStamp": "2020-09-05T23:26:49.8778867",
+        "id": 94
+      }
+    }
+  },
+  "parameters": {
+    "operation_option": {
+      "name": "option",
+      "in": "path",
+      "type": "integer",
+      "required": true,
+      "description": "Option corresponding to required operation",
+      "minimum": 1,
+      "maximum": 12,
+      "default": 2
+    },
+    "operation_body": {
+      "in": "body",
+      "name": "OperationBody",
+      "required": true,
+      "description": "The input parameters for the intended operation",
+      "schema": {
+        "$ref": "#/definitions/OperationRequest"
+      }
+    }
+  }
+}
