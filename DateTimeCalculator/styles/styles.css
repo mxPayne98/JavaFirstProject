@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "JetBrains Mono", "Consolas";
+    font-size: 16px;
+}
+
+.main {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    padding: 50px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    align-items: center;
+}
+
+#inputs {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+}
+
+#inputs>div {
+    display: inline;
+    margin: 20px 40px;
+}
+
+div.main form{
+    display: flex;
+    flex-flow: column;
+}
+
+#submit {
+    align-self: center;
+    width: max-content;
+    margin: 20px 40px;
+}
+
+h1 {
+    margin: 0 0 1em 0;
+    font-size: 3em;
+}
+
+h2 {
+    margin: 0 0 .5em 0;
+    font-size: 1.6em;
+    line-height: 1.5em;
+}
+
+a {
+    color: #007eff;
+}
+
+a:visited {
+    color: #65b1ff;
+}
+
+.result {
+    position: relative;
+    margin: 50px 0px;
+}
