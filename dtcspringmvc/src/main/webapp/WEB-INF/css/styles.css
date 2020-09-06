@@ -1,0 +1,7 @@
+div.error {
+    color: red;
+}
+
+#inputs {
+    visibility: hidden;
+}
